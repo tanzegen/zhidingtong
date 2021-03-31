@@ -27,6 +27,7 @@ class ConfigProvider
                     ],
                 ],
             ],
+            // FIXME: 目前 hyperf 由于配置加载问题，配置发布暂时无法生效。
             'publish' => [
                 [
                     'id' => 'config',
