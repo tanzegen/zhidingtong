@@ -19,9 +19,9 @@ class NameSpaceLoader
      */
     public $config;
 
-    public function __construct(ContainerInterface $container)
+    public function __construct(ConfigInterface $config)
     {
-        $this->config = $container->get(ConfigInterface::class)->get('zhidingtong');
+        $this->config = $config;
     }
 
     /**
@@ -30,7 +30,7 @@ class NameSpaceLoader
      */
     public function getLoader(): array
     {
-        $key = $this->config['micro_use'] ?? '';
+        $key = $this->config->get('zhidingtong.micro_use', '');
         $keyArr = explode(',', $key);
         $res = [];
         if (empty($keyArr)) {
