@@ -11,12 +11,16 @@ declare(strict_types=1);
  */
 namespace Zhidingtong;
 
+use Zhidingtong\JsonRpc\NameSpaceLoader;
+use Zhidingtong\JsonRpc\NameSpaceLoaderFactory;
+
 class ConfigProvider
 {
     public function __invoke(): array
     {
         return [
             'dependencies' => [
+                NameSpaceLoader::class => NameSpaceLoaderFactory::class
             ],
             'commands' => [
             ],

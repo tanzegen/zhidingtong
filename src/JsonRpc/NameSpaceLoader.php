@@ -5,7 +5,6 @@ namespace Zhidingtong\JsonRpc;
 
 
 use Hyperf\Contract\ConfigInterface;
-use Psr\Container\ContainerInterface;
 use RuntimeException;
 
 /**
