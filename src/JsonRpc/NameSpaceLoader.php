@@ -5,6 +5,7 @@ namespace Zhidingtong\JsonRpc;
 
 
 use Hyperf\Contract\ConfigInterface;
+use Psr\Container\ContainerInterface;
 use RuntimeException;
 
 /**
@@ -14,13 +15,13 @@ use RuntimeException;
 class NameSpaceLoader
 {
     /**
-     * @var ConfigInterface
+     * @var array
      */
     public $config;
 
-    public function __construct(ConfigInterface $config)
+    public function __construct(ContainerInterface $container)
     {
-        $this->config = $config;
+        $this->config = $container->get(ConfigInterface::class)->get('zhidingtong', []);
     }
 
     /**
@@ -29,7 +30,7 @@ class NameSpaceLoader
      */
     public function getLoader(): array
     {
-        $key = $this->config->get('zhidingtong.micro_use', '');
+        $key = $this->config['micro_use'] ?? '';
         $keyArr = explode(',', $key);
         $res = [];
         if (empty($keyArr)) {

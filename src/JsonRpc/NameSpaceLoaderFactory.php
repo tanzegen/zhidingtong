@@ -15,6 +15,6 @@ class NameSpaceLoaderFactory
 {
     public function __invoke(ContainerInterface $container)
     {
-        return new NameSpaceLoader($container->get(ConfigInterface::class));
+        return new NameSpaceLoader($container);
     }
 }
