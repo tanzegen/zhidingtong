@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace Hyperf\Zhidingtong\JsonRpc\Test;
+namespace Zhidingtong\JsonRpc\Test;
 
 
 /**
  * test micro load
  * Interface CalculatorServiceInterface
- * @package Hyperf\Zhidingtong\JsonRpc\Test
+ * @package Zhidingtong\JsonRpc\Test
  */
 interface CalculatorServiceInterface
 {

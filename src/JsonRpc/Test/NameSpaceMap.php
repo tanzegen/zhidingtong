@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Hyperf\Zhidingtong\JsonRpc\Test;
+namespace Zhidingtong\JsonRpc\Test;
 
 
 /**
  * Class NameSpaceMap
- * @package Hyperf\Zhidingtong\JsonRpc\Test
+ * @package Zhidingtong\JsonRpc\Test
  */
 class NameSpaceMap
 {

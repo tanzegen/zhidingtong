@@ -1,5 +1,5 @@
 {
-    "name": "hyperf/zhidingtong",
+    "name": "zhidingtong/package",
     "type": "library",
     "license": "GPL",
     "keywords": [
@@ -9,7 +9,7 @@
     "description": "Util for zhidingtong company",
     "autoload": {
         "psr-4": {
-            "Hyperf\\Zhidingtong\\": "src/"
+            "Zhidingtong\\": "src/"
         }
     },
     "autoload-dev": {

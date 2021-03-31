@@ -1,16 +1,16 @@
 <?php
 
 
-namespace Hyperf\Zhidingtong\JsonRpc;
+namespace Zhidingtong\JsonRpc;
 
 
-use Hyperf\Contract\ConfigInterface;
+use Contract\ConfigInterface;
 use Psr\Container\ContainerInterface;
 use RuntimeException;
 
 /**
  * Class NameSpaceLoader
- * @package Hyperf\Zhidingtong\JsonRpc
+ * @package Zhidingtong\JsonRpc
  */
 class NameSpaceLoader
 {
