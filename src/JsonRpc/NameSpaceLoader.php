@@ -48,7 +48,7 @@ class NameSpaceLoader
     public function load(string $v): array
     {
         $res = [];
-        switch (strtolower($v)) {
+        switch (trim(strtolower($v))) {
             case '':
                 break;
             case 'test':
