@@ -10,18 +10,34 @@ use Hyperf\HttpServer\Contract\ResponseInterface;
 /**
  * 所有服务下的状态码类必须继承该抽象类。
  * FIXME: 状态码约定：
- * 1.状态码为四位int类型数值。
+ * 1.各服务下状态码为四位int类型数值。
  * 2.不同服务应该有不同状态码开头。
  * 3.所有返回都应该有状态码且需出自本状态码返回包。
+ * 4.复杂请求或需要前端甄别的请求一定要单独定义状态码，不可使用本类下的成功/失败统一状态码。
  * Class AbstractResponse
  * @package Zhidingtong\Utils\Response
  */
 abstract class AbstractResponse
 {
-    const code_invalid = -99999;
+    /**
+     * 无效的code码
+     */
+    const code_invalid  = -99999;
+
+    /**
+     * 返回成功
+     */
+    const success       = 200;
+
+    /**
+     * 返回失败
+     */
+    const fail          = 500;
 
     public static $map = [
-        self::code_invalid => '未定义的状态码'
+        self::code_invalid  => '未定义的状态码',
+        self::success       => 'ok',
+        self::fail          => 'fail'
     ];
 
     /**
@@ -49,6 +65,7 @@ abstract class AbstractResponse
      * @param int $code
      * @param string $msg
      * @param array $data
+     * @return \Psr\Http\Message\ResponseInterface
      */
     public static function json(int $code, string $msg = '', array $data = [])
     {
@@ -60,7 +77,7 @@ abstract class AbstractResponse
             $msg = static::getMsg($code);
         }
         $response = ApplicationContext::getContainer()->get(ResponseInterface::class);
-        $response->json([
+        return $response->json([
             'code'  => $code,
             'msg'   => $msg,
             'data'  => $data
