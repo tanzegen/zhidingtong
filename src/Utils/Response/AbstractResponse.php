@@ -13,7 +13,6 @@ use Hyperf\HttpServer\Contract\ResponseInterface;
  * 1.各服务下状态码为四位int类型数值。
  * 2.不同服务应该有不同状态码开头。
  * 3.所有返回都应该有状态码且需出自本状态码返回包。
- * 4.复杂请求或需要前端甄别的请求一定要单独定义状态码，不可使用本类下的成功/失败统一状态码。
  * Class AbstractResponse
  * @package Zhidingtong\Utils\Response
  */
@@ -24,20 +23,8 @@ abstract class AbstractResponse
      */
     const code_invalid  = -99999;
 
-    /**
-     * 返回成功
-     */
-    const success       = 200;
-
-    /**
-     * 返回失败
-     */
-    const fail          = 500;
-
     public static $map = [
         self::code_invalid  => '未定义的状态码',
-        self::success       => 'ok',
-        self::fail          => 'fail'
     ];
 
     /**
